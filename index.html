@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- custom css link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" placeholder="Calculator" readonly>
+        <div class="buttons">
+            <div class="box" id="boxColor" onclick="clearData()">AC</div>
+            <div class="box" id="boxColor" onclick="clearDigit()">DEL</div>
+            <div class="box" id="boxColor" onclick="value(`%`)">%</div>
+            <div class="box" id="boxColor" onclick="value(`/`)">/</div>
+            <div class="box" id="box1" onclick="value(7)">7</div>
+            <div class="box" id="box1" onclick="value(8)">8</div>
+            <div class="box" id="box1" onclick="value(9)">9</div>
+            <div class="box" id="boxColor" onclick="value(`*`)">*</div>
+            <div class="box" id="box1" onclick="value(4)">4</div>
+            <div class="box" id="box1" onclick="value(5)">5</div>
+            <div class="box" id="box1" onclick="value(6)">6</div>
+            <div class="box" id="boxColor" onclick="value(`-`)">-</div>
+            <div class="box" id="box1" onclick="value(1)">1</div>
+            <div class="box" id="box1" onclick="value(2)">2</div>
+            <div class="box" id="box1" onclick="value(3)">3</div>
+            <div class="box" id="boxColor" onclick="value(`+`)">+</div>
+            <div class="box" id="box1" onclick="value(0)">0</div>
+            <div class="box" id="box1" onclick="value(`.`)">.</div>
+            <div class="box" id="box2" onclick="calculate()">=</div>
+        </div>
+    </div>
+
+    <script>
+
+        const inputBox = document.querySelector("input");
+
+        function value(val){
+            inputBox.value += val;
+        }
+
+        function clearData() {
+           inputBox.value = "";
+        }
+
+        function clearDigit(){
+            inputBox.value = inputBox.value.slice(0, -1);
+        }
+
+        function calculate(){
+            inputBox.value = eval(inputBox.value);
+        }
+
+    </script>
+</body>
+
+</html>
